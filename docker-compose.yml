@@ -1,11 +1,6 @@
-version: "3.8"
-
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: node-ubuntu-vm
+    build: .
     restart: unless-stopped
     ports:
       - "3000:3000"
@@ -14,5 +9,4 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
-    working_dir: /app
     command: node server.js
